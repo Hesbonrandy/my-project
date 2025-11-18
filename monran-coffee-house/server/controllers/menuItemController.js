@@ -1,7 +1,5 @@
 import MenuItem from '../models/MenuItem.js';
 
-// @desc    Get all menu items
-// @route   GET /api/menu
 export const getMenuItems = async (req, res) => {
   try {
     const { featured } = req.query;
@@ -16,8 +14,6 @@ export const getMenuItems = async (req, res) => {
   }
 };
 
-// @desc    Get menu item by ID
-// @route   GET /api/menu/:id
 export const getMenuItemById = async (req, res) => {
   try {
     const item = await MenuItem.findById(req.params.id).populate('itemType', 'name');
@@ -28,8 +24,6 @@ export const getMenuItemById = async (req, res) => {
   }
 };
 
-// @desc    Create new menu item
-// @route   POST /api/menu
 export const createMenuItem = async (req, res) => {
   try {
     const menuItem = new MenuItem(req.body);
@@ -40,8 +34,6 @@ export const createMenuItem = async (req, res) => {
   }
 };
 
-// @desc    Update menu item
-// @route   PUT /api/menu/:id
 export const updateMenuItem = async (req, res) => {
   try {
     const menuItem = await MenuItem.findByIdAndUpdate(
@@ -56,8 +48,6 @@ export const updateMenuItem = async (req, res) => {
   }
 };
 
-// @desc    Delete menu item
-// @route   DELETE /api/menu/:id
 export const deleteMenuItem = async (req, res) => {
   try {
     const menuItem = await MenuItem.findByIdAndDelete(req.params.id);
