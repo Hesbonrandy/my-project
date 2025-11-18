@@ -1,26 +1,35 @@
 import mongoose from 'mongoose';
 
-const postSchema = new mongoose.Schema({
-  title: {
+const menuItemSchema = new mongoose.Schema({
+  name: {
     type: String,
     required: true,
     trim: true,
-    minlength: 5
+    minlength: 2
   },
-  content: {
+  description: {
     type: String,
     required: true,
     minlength: 10
   },
-  category: {
+  price: {
+    type: Number,
+    required: true,
+    min: 0
+  },
+  itemType: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Category',
+    ref: 'ItemType',
     required: true
   },
-  author: {
+  isFeatured: {
+    type: Boolean,
+    default: false
+  },
+  image: {
     type: String,
-    default: 'Anonymous'
+    default: ''
   }
 }, { timestamps: true });
 
-export default mongoose.model('Post', postSchema);
+export default mongoose.model('MenuItem', menuItemSchema);

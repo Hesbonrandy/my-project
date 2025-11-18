@@ -8,6 +8,20 @@ export const validateCategory = [
     .trim()
 ];
 
+export const validateMenuItem = [
+  body('name').notEmpty().withMessage('Name is required'),
+  body('description').notEmpty().withMessage('Description is required'),
+  body('price').notEmpty().withMessage('Price is required').isNumeric(),
+  body('itemType').isMongoId().withMessage('Valid item type required')
+];
+
+export const validateItemType = [
+  body('name')
+    .notEmpty().withMessage('Name is required')
+    .isLength({ min: 2 }).withMessage('Name must be at least 2 characters')
+    .trim()
+];
+
 export const validatePost = [
   body('title')
     .notEmpty().withMessage('Title is required')

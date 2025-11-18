@@ -1,27 +1,25 @@
 import express from 'express';
 import cors from 'cors';
-import helmet from 'helmet';
-import morgan from 'morgan';
 import connectDB from './config/db.js';
-import authRoutes from './routes/authRoutes.js';
 
+// Routes
 import menuItemRoutes from './routes/menuItemRoutes.js';
 import itemTypeRoutes from './routes/itemTypeRoutes.js';
+import authRoutes from './routes/authRoutes.js';
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(helmet());
 app.use(cors());
-app.use(morgan('dev'));
 app.use(express.json());
 
-app.use('/api/menu', menuItemRoutes);
-app.use('/api/types', itemTypeRoutes);
-app.use('/api/auth',authRoutes);
+// API Routes
+app.use('/api/menu', menuItemRoutes);      // ✅ Changed from /api/posts
+app.use('/api/types', itemTypeRoutes);     // ✅ Changed from /api/categories
+app.use('/api/auth', authRoutes);
 
 connectDB();
 
 app.listen(PORT, () => {
-  console.log(`🚀 Server running on http://localhost:${PORT}`);
+  console.log(`🚀 MonRan API running on http://localhost:${PORT}`);
 });
