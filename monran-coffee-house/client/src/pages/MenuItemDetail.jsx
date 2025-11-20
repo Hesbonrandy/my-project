@@ -32,7 +32,7 @@ export default function MenuItemDetail() {
         <h1>{item.name}</h1>
         <p>{item.description}</p>
         <p><strong>KSh {item.price}</strong></p>
-        <p>Category: {item.itemType.name}</p>
+        <p>Category: {item.itemType?.name || 'Unknown'}</p>
         {item.isFeatured && <p style={{ color: '#E6C588', fontWeight: 'bold' }}>🌟 Featured Item</p>}
       </div>
     </div>
