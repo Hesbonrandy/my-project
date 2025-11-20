@@ -2,8 +2,6 @@
 
 A full-stack digital ordering system for a community-focused coffee shop in Kinoo, Nairobi. Built with the **MERN stack** (MongoDB, Express, React, Node.js), this app allows customers to browse the menu, place orders, and enables staff to manage inventory and fulfill orders in real time.
 
-![MonRan Homepage](client/public/screenshots/home.png)
-![MonRan Menu](client/public/screenshots/menu.png)
 
 ## 🚀 Features Implemented
 
